@@ -4,7 +4,7 @@
 define(["angular", "services"], function (angular) {
     return angular.module("studentApp.controllers", ["studentApp.services"])
         .controller("StudentAppController", [
-            "$scope", "$rootScope", "helloWorld",
+            "$scope", "$rootScope", "hello",
             function ($scope, $rootScope, helloWorld) {
 
                 $scope.test = helloWorld();

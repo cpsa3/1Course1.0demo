@@ -10,7 +10,8 @@ define([
 
     return angular.module("demoApp", [
         "DemoApp.directives",
-        "DemoApp.controllers"
+        "DemoApp.controllers",
+        "ngRoute"
     ]).config([
         '$routeProvider', function ($routeProvider) {
             $routeProvider.when('/demo', {
