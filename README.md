@@ -1,4 +1,4 @@
-##1Course 1.0  Demo
+##AngularJs Demo
 
 
 ##依赖说明
