@@ -4,7 +4,7 @@
 define([
     "angular",
     'angularRoute',
-    "employeeapp/controller"
+    "modules/employeeapp/controller"
 ], function(angular) {
 
     return angular.module("employeeApp", [

@@ -5,23 +5,22 @@
  * description:  主入口控制器 放置核心业务处理函数
  */
 
-define(["angular", "services"], function (angular) {
+define(["angular", "services"], function(angular) {
     return angular.module("CourseCommonApp.controllers", ["CourseCommonApp.services"])
         .controller("CommonController", [
-            "$scope", "$rootScope", "$window",
-            function ($scope, $rootScope, $window) {
+            "$scope", "$rootScope", "$window", "helloWorld",
+            function($scope, $rootScope, $window, helloWorld) {
 
-                $scope.navModel = [
-                    {
-                        url: "index.html#/student",
-                        view: "学员管理"
-                    },
-                    {
-                        url: "index.html#/demo",
-                        view: "测试"
-                    }
-                ];
-                $scope.navdemo=123;
+                var x = helloWorld();
+
+                $scope.navModel = [{
+                    url: "index.html#/student",
+                    view: "学员管理"
+                }, {
+                    url: "index.html#/demo",
+                    view: "测试"
+                }];
+                $scope.navdemo = 123;
             }
         ]);
 });
