@@ -16,9 +16,9 @@ requirejs.config({
         'angular': 'libs/angular/angular',
         'angularMocks': 'libs/angular-mocks/angular-mocks',
         'angularRoute': 'libs/angular-route/angular-route',
-        'app': "app",
-        'services': "common/services",
-        'controller': "common/controller",
+        'app': 'app',
+        'services': 'modules/rootapp/services',
+        'controller': 'modules/rootapp/controller',
         //子模块入口文件 子模块引入在此补充
         'student': "modules/studentapp/app",
         'demo': "modules/demoapp/app"

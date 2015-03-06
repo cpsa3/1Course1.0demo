@@ -10,15 +10,15 @@ requirejs.config({
         'jquery': "libs/jquery/dist/jquery.min",
         'angular': "libs/angular/angular",
         "angularRoute": "libs/angular-route/angular-route",
-        'CourseCommonApp': "app",
-        'services': "common/services",
-        'controller': "common/controller",
+        'rootApp': "app",
+        'services': "modules/rootapp/services",
+        'controller': "modules/rootapp/controller",
         //子模块入口文件 子模块引入在此补充
         'student': "modules/studentapp/app",
         'demo': "modules/demoapp/app"
     },
     shim: {
-        CourseCommonApp: [
+        rootApp: [
             "jquery"
         ],
         angular: {
@@ -30,7 +30,7 @@ requirejs.config({
 });
 
 require([
-    "CourseCommonApp"
+    "rootApp"
 ], function () {
     angular.element(document).ready(function () {
         angular.bootstrap(document, ["CourseCommonApp"]);
