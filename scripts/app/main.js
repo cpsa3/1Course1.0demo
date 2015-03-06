@@ -10,12 +10,12 @@ requirejs.config({
         'jquery': "libs/jquery/dist/jquery.min",
         'angular': "libs/angular/angular",
         "angularRoute": "libs/angular-route/angular-route",
-        'CourseCommonApp': "common/app",
+        'CourseCommonApp': "app",
         'services': "common/services",
         'controller': "common/controller",
         //子模块入口文件 子模块引入在此补充
-        'student': "studentapp/app",
-        'demo': "demoapp/app"
+        'student': "modules/studentapp/app",
+        'demo': "modules/demoapp/app"
     },
     shim: {
         CourseCommonApp: [

@@ -16,12 +16,12 @@ requirejs.config({
         'angular': 'libs/angular/angular',
         'angularMocks': 'libs/angular-mocks/angular-mocks',
         'angularRoute': 'libs/angular-route/angular-route',
-        'app': "common/app",
+        'app': "app",
         'services': "common/services",
         'controller': "common/controller",
         //子模块入口文件 子模块引入在此补充
-        'student': "studentapp/app",
-        'demo': "demoapp/app"
+        'student': "modules/studentapp/app",
+        'demo': "modules/demoapp/app"
     },
     shim: {
         app: [
