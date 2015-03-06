@@ -2,6 +2,7 @@ logs/*
 !.gitkeep
 node_modules/
 dist/
+coverage/
 app/libs/
 tmp
 .DS_Store
