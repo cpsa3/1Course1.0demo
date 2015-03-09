@@ -10,6 +10,7 @@ define([
     "angularRoute",
     "services",
     "controller",
+    "config",
     "student",
     'demo'
 ], function (angular, services, controllers) {
@@ -17,7 +18,7 @@ define([
         "ngRoute",
         "CourseCommonApp.controllers",
         "CourseCommonApp.services",
-
+        "CourseCommonApp.configs",
         //注入子模块
         "studentApp",
         "demoApp"
