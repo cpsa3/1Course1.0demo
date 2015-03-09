@@ -18,9 +18,6 @@ requirejs.config({
         'demo': "modules/demoapp/app"
     },
     shim: {
-        rootApp: [
-            "jquery"
-        ],
         angular: {
             'deps': ["jquery"],
             'exports': "angular"

@@ -1,6 +1,3 @@
-/**
- * Created by CaiFeng on 2015/3/3 0003.
- */
 'use strict';
 
 

@@ -5,7 +5,6 @@
  * description: 主入口公用函数  请求权限配置表在此发起请求
  */
 
-
 define(["angular"], function(angular) {
     return angular.module("Common.services", [])
         .service("helloWorld", function() {
