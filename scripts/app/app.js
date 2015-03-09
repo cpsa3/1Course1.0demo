@@ -11,6 +11,8 @@ define([
     "rootServices",
     "rootController",
     "rootConfig",
+    "commonFilters",
+    "commonServices",
     "student",
     'demo'
 ], function (angular, services, controllers) {

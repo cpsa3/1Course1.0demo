@@ -5,7 +5,8 @@ define([
     "angular",
     'angularRoute',
     "modules/demoapp/directives/directives",
-    "modules/demoapp/controller"
+    "modules/demoapp/controller",
+    "commonServices"
 ], function(angular, directives, controllers) {
 
     return angular.module("demoApp", [

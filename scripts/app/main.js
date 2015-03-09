@@ -14,6 +14,10 @@ requirejs.config({
         'rootServices': "modules/rootapp/services",
         'rootController': "modules/rootapp/controller",
         'rootConfig': "modules/rootapp/config",
+
+        'commonFilters': "common/filters",
+        'commonServices': "common/services",
+
         //子模块入口文件 子模块引入在此补充
         'student': "modules/studentapp/app",
         'demo': "modules/demoapp/app"
