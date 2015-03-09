@@ -1,7 +1,7 @@
 ﻿"use strict";
 
 
-define(["angular", "services"], function (angular) {
+define(["angular", "./services"], function (angular) {
     return angular.module("studentApp.controllers", ["studentApp.services"])
         .controller("StudentAppController", [
             "$scope", "$rootScope", "hello",

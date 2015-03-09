@@ -11,9 +11,9 @@ requirejs.config({
         'angular': "libs/angular/angular",
         "angularRoute": "libs/angular-route/angular-route",
         'rootApp': "app",
-        'services': "modules/rootapp/services",
-        'controller': "modules/rootapp/controller",
-        'config': "modules/rootapp/config",
+        'rootServices': "modules/rootapp/services",
+        'rootController': "modules/rootapp/controller",
+        'rootConfig': "modules/rootapp/config",
         //子模块入口文件 子模块引入在此补充
         'student': "modules/studentapp/app",
         'demo': "modules/demoapp/app"

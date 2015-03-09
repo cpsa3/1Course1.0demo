@@ -5,7 +5,7 @@
  * description:  主入口控制器 放置核心业务处理函数
  */
 
-define(["angular", "services"], function(angular) {
+define(["angular", "rootServices"], function(angular) {
     return angular.module("CourseCommonApp.controllers", ["CourseCommonApp.services"])
         .controller("CommonController", [
             "$scope", "$rootScope", "$window", "helloWorld",

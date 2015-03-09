@@ -8,9 +8,9 @@
 define([
     "angular",
     "angularRoute",
-    "services",
-    "controller",
-    "config",
+    "rootServices",
+    "rootController",
+    "rootConfig",
     "student",
     'demo'
 ], function (angular, services, controllers) {

@@ -7,7 +7,25 @@
     findNestedDependencies: true,
     dir: "dist",
     modules: [
+        /*
         {
+            name: "modules/demoapp/app",
+            exclude: [
+                "jquery",
+                "angular",
+                "angularRoute"
+            ]
+        },
+        {
+            name: "modules/studentapp/app",
+            exclude: [
+                "jquery",
+                "angular",
+                "angularRoute"
+            ]
+        }
+        */
+       {
             name: "main",
             exclude: [
                 "jquery",
