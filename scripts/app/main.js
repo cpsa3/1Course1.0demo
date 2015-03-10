@@ -12,6 +12,7 @@ requirejs.config({
         'rootServices': "modules/rootapp/services",
         'rootController': "modules/rootapp/controller",
         'rootConfig': "modules/rootapp/config",
+        'rootRoutes': "modules/rootapp/routes",
 
         'commonFilters': "common/filters",
         'commonServices': "common/services",

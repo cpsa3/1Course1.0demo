@@ -16,10 +16,15 @@ requirejs.config({
         'angular': 'libs/angular/angular',
         'angularMocks': 'libs/angular-mocks/angular-mocks',
         'angularRoute': 'libs/angular-route/angular-route',
-        'app': 'app',
-        'services': 'modules/rootapp/services',
-        'controller': 'modules/rootapp/controller',
-        'config': "modules/rootapp/config",
+        //'app': 'app',
+        'rootServices': "modules/rootapp/services",
+        'rootController': "modules/rootapp/controller",
+        'rootConfig': "modules/rootapp/config",
+        'rootRoutes': "modules/rootapp/routes",
+
+        'commonFilters': "common/filters",
+        'commonServices': "common/services",
+
         //子模块入口文件 子模块引入在此补充
         'student': "modules/studentapp/app",
         'demo': "modules/demoapp/app"

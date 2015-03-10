@@ -22,12 +22,5 @@ define([
         "studentApp.directives",
         "studentApp.controllers",
         "components.list"
-    ]).config([
-        '$routeProvider', function ($routeProvider) {
-            $routeProvider.when('/student', {
-                templateUrl: 'modules/studentapp/student.html',
-                controller: 'StudentAppController'
-            });
-        }
     ]);
 });

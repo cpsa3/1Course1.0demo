@@ -11,6 +11,7 @@ define([
     "rootServices",
     "rootController",
     "rootConfig",
+    "rootRoutes",
     "commonFilters",
     "commonServices",
     "student",
@@ -21,15 +22,9 @@ define([
         "CourseCommonApp.controllers",
         "CourseCommonApp.services",
         "CourseCommonApp.configs",
+        "CourseCommonApp.routes",
         //注入子模块
         "studentApp",
         "demoApp"
-    ]).config([
-        '$routeProvider', function ($routeProvider) {
-
-            $routeProvider.otherwise({
-                redirectTo: '/student'
-            });
-        }
-    ]);
+    ])
 });

@@ -14,13 +14,6 @@ define([
         "DemoApp.directives",
         "DemoApp.controllers",
         "ngRoute"
-    ]).config([
-        '$routeProvider', function ($routeProvider) {
-            $routeProvider.when('/demo', {
-                templateUrl: 'modules/demoapp/demo.html',
-                controller: 'DemoAppController'
-            });
-        }
     ]);
 });
 
