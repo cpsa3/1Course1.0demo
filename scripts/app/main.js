@@ -5,12 +5,10 @@
  */
 
 requirejs.config({
-    //baseUrl: '/1Course1.0demo/scripts/app',
     paths: {
         'jquery': "libs/jquery/dist/jquery.min",
         'angular': "libs/angular/angular",
         "angularRoute": "libs/angular-route/angular-route",
-        'rootApp': "app",
         'rootServices': "modules/rootapp/services",
         'rootController': "modules/rootapp/controller",
         'rootConfig': "modules/rootapp/config",
@@ -32,7 +30,7 @@ requirejs.config({
 });
 
 require([
-    "rootApp"
+    "app"
 ], function () {
     angular.element(document).ready(function () {
         angular.bootstrap(document, ["CourseCommonApp"]);

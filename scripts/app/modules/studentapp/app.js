@@ -28,7 +28,6 @@ define([
                 templateUrl: 'modules/studentapp/student.html',
                 controller: 'StudentAppController'
             });
-
         }
     ]);
 });

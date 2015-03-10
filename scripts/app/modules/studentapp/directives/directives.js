@@ -10,10 +10,7 @@ define(["angular"], function(angular) {
                 return {
                     restrict: 'EA',
                     template: "<div>hello world Student</div>",
-                    link: function(scope, iElement, iAttr) {
-
-
-                    }
+                    link: function(scope, iElement, iAttr) {}
                 }
             }
         ])
