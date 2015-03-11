@@ -4,8 +4,8 @@
  * 主程序配置文件(http全局处理,路由设置,全局的Constant Value)
  * 
  */
-define(["angular", "angularRoute"], function(angular) {
-    return angular.module("CourseCommonApp.configs", ['ngRoute'])
+define(["angular"], function(angular) {
+    return angular.module("CourseCommonApp.configs", [])
         .value("version", "0.1")
         .constant("projectName", "Demo")
         // 对请求中html文件 做非缓存处理

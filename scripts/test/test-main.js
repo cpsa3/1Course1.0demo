@@ -12,22 +12,22 @@ requirejs.config({
     baseUrl: '/base/app/',
 
     paths: {
-        'jquery': 'libs/jquery/dist/jquery.min',
-        'angular': 'libs/angular/angular',
-        'angularMocks': 'libs/angular-mocks/angular-mocks',
-        'angularRoute': 'libs/angular-route/angular-route',
+        jquery: 'libs/jquery/dist/jquery.min',
+        angular: 'libs/angular/angular',
+        angularMocks: 'libs/angular-mocks/angular-mocks',
+        uiRouter: "libs/angular-ui-router/release/angular-ui-router",
         //'app': 'app',
-        'rootServices': "modules/rootapp/services",
-        'rootController': "modules/rootapp/controller",
-        'rootConfig': "modules/rootapp/config",
-        'rootRoutes': "modules/rootapp/routes",
+        rootServices: "modules/rootapp/services",
+        rootController: "modules/rootapp/controller",
+        rootConfig: "modules/rootapp/config",
+        rootRoutes: "modules/rootapp/routes",
 
-        'commonFilters': "common/filters",
-        'commonServices': "common/services",
+        commonFilters: "common/filters",
+        commonServices: "common/services",
 
         //子模块入口文件 子模块引入在此补充
-        'student': "modules/studentapp/app",
-        'demo': "modules/demoapp/app"
+        student: "modules/studentapp/app",
+        demo: "modules/demoapp/app"
     },
     shim: {
         app: [
@@ -37,8 +37,8 @@ requirejs.config({
             'deps': ['jquery'],
             'exports': 'angular'
         },
-        angularRoute: ['angular'],
-        angularMocks: ['angular']
+        angularMocks: ['angular'],
+        uiRouter: ["angular"]
     },
     // ask Require.js to load these files (all our tests)
     deps: tests,

@@ -1,23 +1,30 @@
 "use strict";
 
 /**
- * 主程序路由设置
+ * 主程序路由设置(使用angular-ui-router:https://github.com/angular-ui/ui-router)
  *
  */
-define(["angular", "angularRoute"], function(angular) {
-    return angular.module("CourseCommonApp.routes", ['ngRoute'])
-        .config(["$routeProvider", function($routeProvider) {
-            $routeProvider
-                .when('/demo', {
-                    templateUrl: 'modules/demoapp/demo.html',
+define(["angular", "uiRouter"], function(angular) {
+    return angular.module("CourseCommonApp.routes", ['ui.router'])
+        .config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider) {
+            $urlRouterProvider.otherwise("/student");
+
+            $stateProvider
+                .state('demo', {
+                    url: "/demo",
+                    templateUrl: "modules/demoapp/demo.html",
                     controller: 'DemoAppController'
                 })
-                .when('/student', {
-                    templateUrl: 'modules/studentapp/student.html',
+                .state('student', {
+                    url: "/student",
+                    templateUrl: "modules/studentapp/student.html",
                     controller: 'StudentAppController'
-                })
-                .otherwise({
-                    redirectTo: '/student'
                 });
-        }]);
+        }])
+        .run(['$rootScope', '$state', '$stateParams',
+            function($rootScope, $state, $stateParams) {
+                $rootScope.$state = $state;
+                $rootScope.$stateParams = $stateParams;
+            }
+        ]);
 });

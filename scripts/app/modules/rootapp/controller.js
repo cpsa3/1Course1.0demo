@@ -14,10 +14,10 @@ define(["angular", "rootServices"], function(angular) {
                 var x = helloWorld();
 
                 $scope.navModel = [{
-                    url: "index.html#/student",
+                    url: "student",
                     view: "学员管理"
                 }, {
-                    url: "index.html#/demo",
+                    url: "demo",
                     view: "测试"
                 }];
                 $scope.navdemo = 123;

@@ -5,17 +5,18 @@
     <link rel="stylesheet" href="libs/html5-boilerplate/css/normalize.css">
     <link rel="stylesheet" href="libs/html5-boilerplate/css/main.css">
     <script src="libs/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
-    <title>My AngularJS App</title>
+    <title ng-bind='$state.current.name'></title>
     <!--<link rel="stylesheet" href="app.css">-->
 </head>
 <body ng-cloak ng-controller="CommonController">
 <ul class="menu">
     <li  ng-repeat="nav in navModel">
-        <a ng-href="{{nav.url}}">{{nav.view}}</a>
+        <!--<a ng-href="{{nav.url}}">{{nav.view}}</a>-->
+        <a ui-sref="{{nav.url}}">{{nav.view}}</a>
     </li>
 </ul>
 
-<div ng-view></div>
+<div ui-view></div>
 
 
 <script data-main="main" src="libs/requirejs/require.js"></script>

@@ -6,27 +6,30 @@
 
 requirejs.config({
     paths: {
-        'jquery': "libs/jquery/dist/jquery.min",
-        'angular': "libs/angular/angular",
-        "angularRoute": "libs/angular-route/angular-route",
-        'rootServices': "modules/rootapp/services",
-        'rootController': "modules/rootapp/controller",
-        'rootConfig': "modules/rootapp/config",
-        'rootRoutes': "modules/rootapp/routes",
+        jquery: "libs/jquery/dist/jquery.min",
+        angular: "libs/angular/angular",
+        //"angularRoute": "libs/angular-route/angular-route",
+        uiRouter: "libs/angular-ui-router/release/angular-ui-router",
+        
+        rootServices: "modules/rootapp/services",
+        rootController: "modules/rootapp/controller",
+        rootConfig: "modules/rootapp/config",
+        rootRoutes: "modules/rootapp/routes",
 
-        'commonFilters': "common/filters",
-        'commonServices': "common/services",
+        commonFilters: "common/filters",
+        commonServices: "common/services",
 
         //子模块入口文件 子模块引入在此补充
-        'student': "modules/studentapp/app",
-        'demo': "modules/demoapp/app"
+        student: "modules/studentapp/app",
+        demo: "modules/demoapp/app"
     },
     shim: {
         angular: {
             'deps': ["jquery"],
             'exports': "angular"
         },
-        angularRoute: ["angular"]
+        //angularRoute: ["angular"],
+        uiRouter: ["angular"]
     }
 });
 

@@ -7,7 +7,7 @@
 
 define([
     "angular",
-    "angularRoute",
+    "uiRouter",
     "rootServices",
     "rootController",
     "rootConfig",
@@ -18,7 +18,7 @@ define([
     'demo'
 ], function (angular, services, controllers) {
     return angular.module("CourseCommonApp", [
-        "ngRoute",
+        "ui.router",
         "CourseCommonApp.controllers",
         "CourseCommonApp.services",
         "CourseCommonApp.configs",

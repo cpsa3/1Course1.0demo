@@ -7,7 +7,6 @@
 
 define([
     "angular",
-    'angularRoute',
     "modules/studentapp/services",
     "modules/studentapp/directives/directives",
     "modules/studentapp/controller",
@@ -17,7 +16,6 @@ define([
 ], function (angular, services, directives, controllers) {
 
     return angular.module("studentApp", [
-        "ngRoute",
         "studentApp.services",
         "studentApp.directives",
         "studentApp.controllers",

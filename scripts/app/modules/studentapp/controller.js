@@ -8,6 +8,7 @@ define(["angular", "./services"], function (angular) {
             function ($scope, $rootScope, helloWorld) {
 
                 $scope.test = helloWorld();
+                var state = $scope.$state;
 
                 $scope.listModel = [
                     {
