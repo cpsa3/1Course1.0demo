@@ -30,7 +30,7 @@
             exclude: [
                 "jquery",
                 "angular",
-                "angularRoute"
+                "uiRouter"
             ]
         }
     ]

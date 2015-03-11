@@ -2,6 +2,7 @@ logs/*
 !.gitkeep
 node_modules/
 dist/
+dest/
 coverage/
 app/libs/
 tmp
