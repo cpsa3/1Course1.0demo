@@ -8,10 +8,12 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         jshint: {
             options: {
-                eqeqeq: true,
-                trailing: true
+                jshintrc: '.jshintrc',
+                reporter: 'checkstyle',//require('jshint-stylish'),
+                reporterOutput: 'tmp/jshint-report.xml',
+                force: true
             },
-            files: ['app/modules/**/*.js']
+            all: ['app/modules/**/*.js']
         },
         uglify: {
             options: {
