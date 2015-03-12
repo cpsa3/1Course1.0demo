@@ -9,7 +9,7 @@ module.exports = function(grunt) {
         jshint: {
             options: {
                 jshintrc: '.jshintrc',
-                reporter: 'checkstyle',//require('jshint-stylish'),
+                reporter: 'checkstyle', //require('jshint-stylish'),
                 reporterOutput: 'tmp/jshint-report.xml',
                 force: true
             },
@@ -79,6 +79,33 @@ module.exports = function(grunt) {
                     ]
                 }
             }
+        },
+        filerev: {
+            options: {
+                algorithm: 'md5',
+                length: 8
+            },
+            js: {
+                //expand: true,
+                src: [
+                    'dist/*.js'
+                ],
+                //dest: 'tmp'
+            }
+        },
+        useminPrepare: {
+            html: 'app/index.html',
+            options: {
+                dest: 'tmp'
+            }
+        },
+        usemin: {
+            html : {
+                files : [{
+                        src : 'dist/index.html'
+                    }
+                ]
+            },
         }
     });
 
@@ -87,8 +114,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-filerev');
+    grunt.loadNpmTasks('grunt-usemin');
 
     grunt.registerTask('default', ['jshint']);
     grunt.registerTask('release', ['uglify', 'requirejs']);
+    grunt.registerTask('build', ['useminPrepare', 'filerev', 'usemin']);
 
 };
