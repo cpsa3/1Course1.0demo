@@ -8,7 +8,6 @@ requirejs.config({
     paths: {
         jquery: "libs/jquery/dist/jquery.min",
         angular: "libs/angular/angular",
-        //"angularRoute": "libs/angular-route/angular-route",
         uiRouter: "libs/angular-ui-router/release/angular-ui-router",
         
         rootServices: "modules/rootapp/services",
@@ -28,7 +27,6 @@ requirejs.config({
             'deps': ["jquery"],
             'exports': "angular"
         },
-        //angularRoute: ["angular"],
         uiRouter: ["angular"]
     }
 });
