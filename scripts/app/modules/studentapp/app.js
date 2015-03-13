@@ -1,9 +1,4 @@
 ﻿"use strict";
-/**
- * author :小潘
- * time: 2015年3月3日 17:48:41
- * description: 子模块的-程序入口   希望每个模块都可自成体系
- */
 
 define([
     "angular",
@@ -13,8 +8,7 @@ define([
     //引入第三方组件或者 自定义业务组件
     "components/list/list",
     "commonServices"
-], function (angular, services, directives, controllers) {
-
+], function(angular, services, directives, controllers) {
     return angular.module("studentApp", [
         "studentApp.services",
         "studentApp.directives",

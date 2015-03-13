@@ -2,7 +2,6 @@
 
 /**
  * 主程序路由设置(使用angular-ui-router:https://github.com/angular-ui/ui-router)
- *
  */
 define(["angular", "uiRouter"], function(angular) {
     return angular.module("CourseCommonApp.routes", ['ui.router'])

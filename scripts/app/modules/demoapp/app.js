@@ -1,6 +1,5 @@
 ﻿"use strict";
 
-
 define([
     "angular",
     "modules/demoapp/directives/directives",
@@ -14,5 +13,3 @@ define([
         "DemoApp.controllers"
     ]);
 });
-
-

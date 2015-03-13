@@ -2,7 +2,6 @@
 
 /**
  * 主程序配置文件(http全局处理,路由设置,全局的Constant Value)
- * 
  */
 define(["angular"], function(angular) {
     return angular.module("CourseCommonApp.configs", [])

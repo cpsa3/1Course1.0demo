@@ -1,15 +1,9 @@
-﻿/**
- * author :小潘
- * time: 2014年12月15日 21:45:16
- * description:  整站仅有一个，避免再次创建，方便发布、压缩、合并
- */
-
-requirejs.config({
+﻿requirejs.config({
     paths: {
         jquery: "libs/jquery/dist/jquery.min",
         angular: "libs/angular/angular",
         uiRouter: "libs/angular-ui-router/release/angular-ui-router",
-        
+
         rootServices: "modules/rootapp/services",
         rootController: "modules/rootapp/controller",
         rootConfig: "modules/rootapp/config",
@@ -33,11 +27,8 @@ requirejs.config({
 
 require([
     "app"
-], function () {
-    angular.element(document).ready(function () {
+], function() {
+    angular.element(document).ready(function() {
         angular.bootstrap(document, ["CourseCommonApp"]);
     });
 });
-
-
-

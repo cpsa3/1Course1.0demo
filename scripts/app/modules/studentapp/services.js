@@ -1,6 +1,5 @@
 ﻿"use strict";
 
-
 define(["angular"], function(angular) {
     angular.module("studentApp.services", [])
         //获取单个课程数据
@@ -8,7 +7,7 @@ define(["angular"], function(angular) {
             function() {
                 return function() {
                     return "hello";
-                }
+                };
             }
-        )
+        );
 });

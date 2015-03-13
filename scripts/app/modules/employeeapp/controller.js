@@ -1,4 +1,6 @@
-﻿define(["angular"], function(angular) {
+﻿"use strict";
+
+define(["angular"], function(angular) {
     return angular.module("EmployeeApp.controllers", [])
         .controller("EmployeeAppController", [
             "$scope", "$rootScope",

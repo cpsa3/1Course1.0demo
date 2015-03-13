@@ -1,6 +1,5 @@
 ﻿"use strict";
 
-
 define([
     "angular",
     "modules/employeeapp/controller"

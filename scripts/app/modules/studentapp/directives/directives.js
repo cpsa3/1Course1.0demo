@@ -1,6 +1,5 @@
 ﻿"use strict";
 
-
 define(["angular"], function(angular) {
     angular.module("studentApp.directives", [])
         //课程容器指令
@@ -11,7 +10,7 @@ define(["angular"], function(angular) {
                     restrict: 'EA',
                     template: "<div>hello world Student</div>",
                     link: function(scope, iElement, iAttr) {}
-                }
+                };
             }
-        ])
+        ]);
 });
