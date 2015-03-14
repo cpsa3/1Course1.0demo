@@ -5,13 +5,11 @@
  * description:  主入口控制器 放置核心业务处理函数
  */
 
-define(["angular", "rootServices"], function(angular) {
-    return angular.module("CourseCommonApp.controllers", ["CourseCommonApp.services"])
+define(["angular"], function(angular) {
+    return angular.module("CourseCommonApp.controllers", [])
         .controller("CommonController", [
-            "$scope", "$rootScope", "$window", "helloWorld",
-            function($scope, $rootScope, $window, helloWorld) {
-
-                var x = helloWorld();
+            "$scope", "$rootScope", "$window",
+            function($scope, $rootScope, $window) {
 
                 $scope.navModel = [{
                     url: "student",

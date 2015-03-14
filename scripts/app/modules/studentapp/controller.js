@@ -34,6 +34,13 @@ define(["angular", "./services"], function(angular) {
                     name: "老狗9",
                     phone: "1877777777"
                 }];
+
+                $scope.nav = {
+                    add: {
+                        state: 'student.add',
+                        name: '添加'
+                    }
+                };
             }
         ]);
 });

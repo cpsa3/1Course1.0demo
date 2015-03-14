@@ -19,6 +19,11 @@ define(["angular", "uiRouter"], function(angular) {
                     templateUrl: "modules/studentapp/student.html",
                     controller: 'StudentAppController'
                 })
+                .state('student.add', {
+                    url: "/add",
+                    templateUrl: "modules/studentapp/student.add.html",
+                    //controller: 'StudentAppAddController'
+                })
                 .state('index', {
                     url: "/index",
                     templateUrl: "modules/index/index.html",

@@ -17,7 +17,6 @@ requirejs.config({
         angularMocks: 'libs/angular-mocks/angular-mocks',
         uiRouter: "libs/angular-ui-router/release/angular-ui-router",
         //'app': 'app',
-        rootServices: "modules/rootapp/services",
         rootController: "modules/rootapp/controller",
         rootConfig: "modules/rootapp/config",
         rootRoutes: "modules/rootapp/routes",

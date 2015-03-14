@@ -5,7 +5,7 @@ define(["angular"], function (angular) {
         .controller("IndexAppController", [
             "$scope", "$rootScope",
             function ($scope, $rootScope) {
-                $scope.text="this is index page.";
+                $scope.desp="this is index page.";
             }
         ]);
 });

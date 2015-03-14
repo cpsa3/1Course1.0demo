@@ -4,7 +4,6 @@
         angular: "libs/angular/angular",
         uiRouter: "libs/angular-ui-router/release/angular-ui-router",
 
-        rootServices: "modules/rootapp/services",
         rootController: "modules/rootapp/controller",
         rootConfig: "modules/rootapp/config",
         rootRoutes: "modules/rootapp/routes",
