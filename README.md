@@ -22,3 +22,7 @@
 * 不需要打包的第三方库需要在build.js中配置，配置参考[r.js-sample-build-file](https://github.com/jrburke/r.js/blob/master/build/example.build.js)
 * 执行 `node node_modules/requirejs/bin/r.js -o build.js` 进行项目打包
 * 打包后文件在dist目录下
+
+## grunt命令
+* `grunt dev` :启动站点，并开启livereload监听页面变化 
+* `grunt release` :打包压缩js代码 

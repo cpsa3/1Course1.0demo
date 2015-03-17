@@ -4,8 +4,17 @@ module.exports = function(grunt) {
     // Load grunt tasks automatically  
     //require('load-grunt-tasks')(grunt);
 
+    var cfg = {
+        src: 'app/',
+        // Change 'localhost' to '0.0.0.0' to access the server from outside.
+        serverHost: 'localhost',
+        serverPort: 9000,
+        livereload: 35729
+    };
+
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        cfg: cfg,
         jshint: {
             options: {
                 jshintrc: '.jshintrc',
@@ -100,12 +109,36 @@ module.exports = function(grunt) {
             }
         },
         usemin: {
-            html : {
-                files : [{
-                        src : 'dist/index.html'
-                    }
-                ]
+            html: {
+                files: [{
+                    src: 'dist/index.html'
+                }]
             },
+        },
+        //开启服务
+        connect: {
+            options: {
+                port: cfg.serverPort,
+                hostname: cfg.serverHost,
+                livereload: cfg.livereload
+            },
+            dev: {
+                options: {
+                    open: true,
+                    base: cfg.src
+                }
+            }
+        },
+        //监控文件变化
+        watch: {
+            dev: {
+                options: {
+                    livereload: cfg.livereload
+                },
+                files: [
+                    cfg.src + '/**/*.{html,js}'
+                ]
+            }
         }
     });
 
@@ -114,11 +147,12 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-filerev');
     grunt.loadNpmTasks('grunt-usemin');
 
     grunt.registerTask('default', ['jshint']);
     grunt.registerTask('release', ['uglify', 'requirejs']);
     grunt.registerTask('build', ['useminPrepare', 'filerev', 'usemin']);
-
+    grunt.registerTask('dev', ['connect:dev', 'watch:dev']);
 };
