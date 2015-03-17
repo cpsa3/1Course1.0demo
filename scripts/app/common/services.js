@@ -11,7 +11,7 @@ define(["angular"], function(angular) {
             var sharedService = {};
 
             sharedService.publish = function(msg, data) {
-                data = data || {};
+                data = angular.copy(data) || {};
                 $rootScope.$broadcast(msg, data);
             };
 
@@ -25,16 +25,18 @@ define(["angular"], function(angular) {
             var messageBus = {};
 
             messageBus.publish = function(msg, data) {
-                data = data || {};
+                data = angular.copy(data) || {};
                 $rootScope.$emit(msg, data);
             };
 
             messageBus.subscribe = function(msg, scope, func) {
-                var unbind = $rootScope.$on(msg, func);
+                var unsubscribe = $rootScope.$on(msg, func);
                 if (scope) {
-                    scope.$on('$destroy', unbind);
+                    //remove the listener when $scope is destroyed
+                    scope.$on('$destroy', unsubscribe);
                 }
-                return unbind;
+                //return the unsubscribe function so the user can do their own memory management
+                return unsubscribe;
             };
 
             return messageBus;
