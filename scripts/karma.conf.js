@@ -14,7 +14,8 @@ module.exports = function(config) {
 
 
         // list of files / patterns to load in the browser
-        files: [{
+        files: [
+            'app/libs/angular/angular.js', {
                 pattern: 'app/**/*.js',
                 included: false
             }, {
@@ -24,7 +25,9 @@ module.exports = function(config) {
                 pattern: 'test/spec/**/*.js',
                 included: false
             },
-            'test/test-main.js'
+            'test/karma-utils.js',
+            'test/test-main.js',
+            'app/**/*.html',
         ],
 
 
@@ -37,10 +40,18 @@ module.exports = function(config) {
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
+            'app/**/*.html': ['ng-html2js'],
             'app/modules/**/*.js': 'coverage',
             'app/common/*.js': 'coverage'
         },
 
+        ngHtml2JsPreprocessor: {
+            // you might need to strip the main directory prefix in the URL request
+            stripPrefix: 'app/',
+            // setting this option will create only a single module that contains templates
+            // from all the files, so you can load them all with module('ngTemplates')
+            moduleName: 'ngTemplates'
+        },
 
         // test results reporter to use
         // possible values: 'dots', 'progress'

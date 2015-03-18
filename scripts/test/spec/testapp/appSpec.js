@@ -8,7 +8,8 @@ define(['test'], function(app) {
         var goTo;
 
         beforeEach(function() {
-
+            //load template.html by ngHtml2Js
+            module('ngTemplates');
             module('testApp');
 
             inject(function(_$rootScope_, _$state_, _$injector_, $templateCache,_$location_) {
@@ -21,7 +22,7 @@ define(['test'], function(app) {
                     $rootScope.$digest();
                 }
                 // We need add the template entry into the templateCache if we ever specify a templateUrl
-                $templateCache.put('template.html', '');
+                //$templateCache.put('modules/testapp/template.html', '');
             })
         });
 

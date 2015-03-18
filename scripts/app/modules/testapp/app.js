@@ -8,7 +8,7 @@ define([
         .config(['$stateProvider', function($stateProvider) {
             $stateProvider.state('myState', {
                 url: '/state/:id',
-                templateUrl: 'template.html',
+                templateUrl: 'modules/testapp/template.html',
                 controller: 'MyCtrl'
             });
         }]);
