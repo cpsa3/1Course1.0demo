@@ -63,9 +63,16 @@ module.exports = function(grunt) {
                 expand: true,
                 // makes all src relative to cwd
                 cwd: cfg.tmp,
+                flatten: true,
                 src: 'uglify/**',
-                dest: cfg.dist,
+                dest: cfg.dist + 'tasks/',
+                filter: 'isFile'
             },
+        },
+        clean: {
+            tasks: [cfg.dist + 'tasks/*.js', '!' + cfg.dist + 'tasks/*.min.js'],
+            tmp: cfg.tmp,
+            dist: cfg.dist
         },
         filerev: {
             options: {
@@ -124,6 +131,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
@@ -133,5 +141,5 @@ module.exports = function(grunt) {
     grunt.registerTask('default', ['jshint']);
     //grunt.registerTask('build', ['useminPrepare', 'filerev', 'usemin']);
     grunt.registerTask('dev', ['connect:dev', 'watch:dev']);
-    grunt.registerTask('release', ['uglify:demo', 'requirejs:compile', 'copy:demo']);
+    grunt.registerTask('release', ['clean:tmp', 'clean:dist', 'uglify:demo', 'requirejs:compile', 'copy:demo', 'clean:tasks']);
 };

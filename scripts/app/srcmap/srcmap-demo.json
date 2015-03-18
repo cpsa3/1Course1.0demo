@@ -8,12 +8,12 @@
             "app/mylibs/toot/toot-0.2.0/toot.nativeenhancement.js",
             "app/mylibs/toot/toot.view-0.1.0.js"
         ],
-        "dest": ".tmp/uglify/report/demo.min.js"
+        "dest": ".tmp/uglify/tasks/demo.min.js"
     }, {
         "src": [
             "app/mylibs/toot/toot-0.2.0/toot.js",
             "app/mylibs/toot/toot.view-0.1.0.js"
         ],
-        "dest": ".tmp/uglify/report/task.min.js"
+        "dest": ".tmp/uglify/tasks/task.min.js"
     }]
 }
