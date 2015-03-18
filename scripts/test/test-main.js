@@ -26,10 +26,14 @@ requirejs.config({
 
         //子模块入口文件 子模块引入在此补充
         student: "modules/studentapp/app",
-        demo: "modules/demoapp/app"
+        demo: "modules/demoapp/app",
+        test: "modules/testapp/app"
     },
     shim: {
         app: [
+            'angularMocks'
+        ],
+        test: [
             'angularMocks'
         ],
         angular: {
