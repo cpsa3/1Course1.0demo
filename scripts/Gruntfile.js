@@ -6,7 +6,8 @@ module.exports = function(grunt) {
 
     var cfg = {
         src: 'app/',
-        // Change 'localhost' to '0.0.0.0' to access the server from outside.
+        dist: 'dist/',
+        tmp: '.tmp/',
         serverHost: 'localhost',
         serverPort: 9000,
         livereload: 35729
@@ -14,39 +15,27 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        srcMapDemo: grunt.file.readJSON('app/srcmap/srcmap-demo.json'),
         cfg: cfg,
+
         jshint: {
             options: {
                 jshintrc: '.jshintrc',
                 reporter: 'checkstyle', //require('jshint-stylish'),
-                reporterOutput: 'tmp/jshint-report.xml',
+                reporterOutput: cfg.tmp + 'jshint-report.xml',
                 force: true
             },
             all: ['app/modules/**/*.js']
         },
         uglify: {
             options: {
-                banner: '/*! <%= pkg.name %>-<%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+                banner: '/*! <%= pkg.name %>-<%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
             },
-            toot: {
+            demo: {
                 options: {
                     sourceMap: false,
-                    sourceMapName: 'dest/sourcemap.map',
                 },
-                files: {
-                    'dest/toot/toot-0.2.0.min.js': ['app/mylibs/toot/toot-0.2.0/*.js'],
-                    'dest/toot/toot-0.1.1.min.js': ['app/mylibs/toot/toot-0.1.1/*.js']
-                }
-            },
-            bizcmpts: {
-                options: {
-                    sourceMap: false,
-                    sourceMapName: 'dest/sourcemap.map',
-                },
-                files: {
-                    'dest/bizcmpts/businesscomponents-0.1.11.min.js': ['app/mylibs/bizcmpts/businesscomponents-0.1.11/*.js'],
-                    'dest/bizcmpts/businesscomponents-1.2.4.min.js': ['app/mylibs/bizcmpts/businesscomponents-1.2.4/*.js']
-                }
+                files: "<%= srcMapDemo.files %>"
             }
         },
         // Optimize RequireJS projects using r.js.
@@ -58,36 +47,25 @@ module.exports = function(grunt) {
                     removeCombined: true,
                     findNestedDependencies: true,
                     dir: "dist",
-                    modules: [
-                        /*
-                        {
-                            name: "modules/demoapp/app",
-                            exclude: [
-                                "jquery",
-                                "angular",
-                                "angularRoute"
-                            ]
-                        },
-                        {
-                            name: "modules/studentapp/app",
-                            exclude: [
-                                "jquery",
-                                "angular",
-                                "angularRoute"
-                            ]
-                        }
-                        */
-                        {
-                            name: "app",
-                            exclude: [
-                                "jquery",
-                                "angular",
-                                "uiRouter"
-                            ]
-                        }
-                    ]
+                    modules: [{
+                        name: "app",
+                        exclude: [
+                            "jquery",
+                            "angular",
+                            "uiRouter"
+                        ]
+                    }]
                 }
             }
+        },
+        copy: {
+            demo: {
+                expand: true,
+                // makes all src relative to cwd
+                cwd: cfg.tmp,
+                src: 'uglify/**',
+                dest: cfg.dist,
+            },
         },
         filerev: {
             options: {
@@ -145,6 +123,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
@@ -152,7 +131,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-usemin');
 
     grunt.registerTask('default', ['jshint']);
-    grunt.registerTask('release', ['uglify', 'requirejs']);
-    grunt.registerTask('build', ['useminPrepare', 'filerev', 'usemin']);
+    //grunt.registerTask('build', ['useminPrepare', 'filerev', 'usemin']);
     grunt.registerTask('dev', ['connect:dev', 'watch:dev']);
+    grunt.registerTask('release', ['uglify:demo', 'requirejs:compile', 'copy:demo']);
 };

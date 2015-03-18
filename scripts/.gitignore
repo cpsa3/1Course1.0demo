@@ -5,7 +5,7 @@ dist/
 dest/
 coverage/
 app/libs/
-tmp
+.tmp/
 .DS_Store
 .idea
 *.log
