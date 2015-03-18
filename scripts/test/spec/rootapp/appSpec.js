@@ -11,7 +11,6 @@ define(['app'], function(app) {
 
             module('ngTemplates');
             module('CourseCommonApp');
-            module("CourseCommonApp.routes");
 
 
             //preloadTpl('modules/demoapp/demo.html?undefined')
@@ -23,6 +22,8 @@ define(['app'], function(app) {
                 $httpBackend = _$httpBackend_;
                 //require or karma by request the template by xxx.html?undefined fuck it!
                 $templateCache.put('modules/demoapp/demo.html?undefined','');
+
+                $httpBackend.expectGET('modules/demoapp/demo.html?undefined').respond(200, 'got it!')
             })
         });
 

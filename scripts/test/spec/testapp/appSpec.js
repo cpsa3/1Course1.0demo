@@ -4,7 +4,7 @@ define(['test'], function(app) {
 
     describe('testApp/myState', function() {
 
-        var $rootScope, $state, $injector, myServiceMock, state = 'myState';
+        var $rootScope, $state, $stateParams, $injector, myServiceMock, state = 'myState';
         var goTo;
 
         beforeEach(function() {
@@ -12,15 +12,16 @@ define(['test'], function(app) {
             module('ngTemplates');
             module('testApp');
 
-            inject(function(_$rootScope_, _$state_, _$injector_, $templateCache,_$location_) {
+            inject(function(_$rootScope_, _$state_, _$injector_, $templateCache, _$location_, _$stateParams_) {
                 $rootScope = _$rootScope_;
                 $state = _$state_;
                 $injector = _$injector_;
+                $stateParams = _$stateParams_;
 
-                goTo = function(url){
+                goTo = function(url) {
                     _$location_.url(url);
                     $rootScope.$digest();
-                }
+                };
                 // We need add the template entry into the templateCache if we ever specify a templateUrl
                 //$templateCache.put('modules/testapp/template.html', '');
             })
