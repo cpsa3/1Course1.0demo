@@ -10,7 +10,8 @@ define(['app'], function(app) {
         beforeEach(function() {
 
             module('ngTemplates');
-            module('CourseCommonApp');
+            //module('CourseCommonApp');
+            module('CourseCommonApp.routes');
 
 
             //preloadTpl('modules/demoapp/demo.html?undefined')
@@ -21,9 +22,10 @@ define(['app'], function(app) {
                 $injector = _$injector_;
                 $httpBackend = _$httpBackend_;
                 //require or karma by request the template by xxx.html?undefined fuck it!
-                $templateCache.put('modules/demoapp/demo.html?undefined','');
-
-                $httpBackend.expectGET('modules/demoapp/demo.html?undefined').respond(200, 'got it!')
+                //$templateCache.put('modules/demoapp/demo.html?undefined', '');
+                //$httpBackend.expectGET('modules/demoapp/demo.html?undefined').respond("<div>mock template</div>");
+                //$httpBackend.expectGET('modules/studentapp/student.html?undefined').respond("<div>mock template</div>");
+                //$httpBackend.expectGET('modules/demoapp/demo.html?undefined').respond(200, 'got it!')
             })
         });
 
