@@ -46,7 +46,7 @@ module.exports = function(grunt) {
                     baseUrl: "app",
                     removeCombined: true,
                     findNestedDependencies: true,
-                    dir: "dist",
+                    dir: cfg.dist,
                     modules: [{
                         name: "app",
                         exclude: [
