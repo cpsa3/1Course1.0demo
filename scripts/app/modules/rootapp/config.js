@@ -3,19 +3,19 @@
 /**
  * 主程序配置文件(http全局处理,路由设置,全局的Constant Value)
  */
-define(["angular"], function(angular) {
-    return angular.module("CourseCommonApp.configs", [])
+define(["angular", 'ngDialog'], function (angular) {
+    return angular.module("CourseCommonApp.configs", ['ngDialog'])
         .value("version", "0.1")
         .constant("projectName", "Demo")
         // 对请求中html文件 做非缓存处理
         // 全局HTTP处理
-        .config(["$httpProvider", function($httpProvider) {
-            $httpProvider.interceptors.push(['$q', '$rootScope', function($q, $rootScope) {
+        .config(["$httpProvider", function ($httpProvider) {
+            $httpProvider.interceptors.push(['$q', '$rootScope', function ($q, $rootScope) {
                 return {
-                    request: function(config) {
+                    request: function (config) {
                         //监控Angularjs get请求 如果请求地址含有html文件，则给其加版本戳，已防止缓存
                         var urlArgs = "version=" + (new Date()).getTime();
-                        if (typeof(requirejs) != "undefined") {
+                        if (typeof (requirejs) != "undefined") {
                             urlArgs = requirejs.s.contexts._.config.urlArgs;
                         }
                         if (config.method == 'GET') {
@@ -26,7 +26,7 @@ define(["angular"], function(angular) {
                         }
                         return config;
                     },
-                    responseError: function(response) {
+                    responseError: function (response) {
                         switch (response.status) {
                             case 497:
                                 //你无权进行该操作
@@ -46,5 +46,13 @@ define(["angular"], function(angular) {
                     }
                 };
             }]);
+        }])
+        .config(['ngDialogProvider', function (ngDialogProvider) {
+            ngDialogProvider.setDefaults({
+                className: 'ngdialog-theme-default',
+                template: 'common/templates/dialogs/simpleDialog.html',
+                plain: false,
+                showClose: false,
+            });
         }]);
 });

@@ -24,12 +24,10 @@ define(["angular", 'ngDialog'], function (angular) {
 
                 $scope.open = function () {
                     ngDialog.openConfirm({
-                        template: 'common/templates/dialogs/simpleDialog.html',
                         data: {
                             title: '提醒',
                             message: '确认删除：老狗等人？',
                         }
-                        //scope: $scope
                     }).then(function (value) {
                         console.log('Modal promise resolved. Value: ', value);
                     }, function (reason) {
