@@ -2,6 +2,7 @@
     paths: {
         jquery: "libs/jquery/dist/jquery.min",
         angular: "libs/angular/angular",
+        ngDialog: "libs/ngDialog/js/ngDialog",
         uiRouter: "libs/angular-ui-router/release/angular-ui-router",
 
         rootController: "modules/rootapp/controller",
