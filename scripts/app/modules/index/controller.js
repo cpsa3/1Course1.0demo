@@ -3,8 +3,8 @@
 define(["angular", 'ngDialog'], function (angular) {
     return angular.module("IndexApp.controller", ['Common.services', 'ngDialog'])
         .controller("IndexAppController", [
-            "$scope", "$rootScope", 'messageBus', '$filter', 'ngDialog',
-            function ($scope, $rootScope, messageBus, $filter, ngDialog) {
+            "$scope", "$rootScope", 'messageBus', '$filter', 'ngDialog', '$timeout',
+            function ($scope, $rootScope, messageBus, $filter, ngDialog, $timeout) {
                 $scope.desp = "this is index page.";
 
 
@@ -23,7 +23,7 @@ define(["angular", 'ngDialog'], function (angular) {
                 messageBus.publish('index.load', data);
 
                 $scope.open = function () {
-                    ngDialog.openConfirm({
+                    var dialog = ngDialog.openConfirm({
                         data: {
                             title: '提醒',
                             message: '确认删除：老狗等人？',
@@ -33,7 +33,14 @@ define(["angular", 'ngDialog'], function (angular) {
                     }, function (reason) {
                         console.log('Modal promise rejected. Reason: ', reason);
                     });
+
+
+                    //1s 后自动关闭
+                    $timeout(function () {
+                        ngDialog.close();
+                    }, 1000);
                 };
+
             }
         ]);
 });
