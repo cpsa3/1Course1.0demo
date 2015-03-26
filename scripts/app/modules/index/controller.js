@@ -1,10 +1,10 @@
 "use strict";
 
-define(["angular", 'ngDialog'], function (angular) {
-    return angular.module("IndexApp.controller", ['Common.services', 'ngDialog'])
+define(["angular", 'common/services/dialogService', 'ngDialog'], function (angular) {
+    return angular.module("IndexApp.controller", ['Common.services', 'Dialog.services', 'ngDialog'])
         .controller("IndexAppController", [
-            "$scope", "$rootScope", 'messageBus', '$filter', 'ngDialog', '$timeout',
-            function ($scope, $rootScope, messageBus, $filter, ngDialog, $timeout) {
+            "$scope", "$rootScope", 'messageBus', '$filter', 'gintDialog', 'ngDialog', '$timeout',
+            function ($scope, $rootScope, messageBus, $filter, gintDialog, ngDialog, $timeout) {
                 $scope.desp = "this is index page.";
 
 
@@ -22,25 +22,21 @@ define(["angular", 'ngDialog'], function (angular) {
                 }];
                 messageBus.publish('index.load', data);
 
-                $scope.open = function () {
-                    var dialog = ngDialog.openConfirm({
-                        data: {
-                            title: '提醒',
-                            message: '确认删除：老狗等人？',
-                        }
-                    }).then(function (value) {
-                        console.log('Modal promise resolved. Value: ', value);
-                    }, function (reason) {
-                        console.log('Modal promise rejected. Reason: ', reason);
+                $scope.confirm = function () {
+                    gintDialog.confirm('提醒','确认删除 张三丰 等人？',function (value) {
+                        console.log('Modal promise resolved. Value1: ', value);
+                    },function (reason) {
+                        console.log('Modal promise rejected. Reason1: ', reason);
                     });
-
-
-                    //1s 后自动关闭
-                    $timeout(function () {
-                        ngDialog.close();
-                    }, 1000);
                 };
 
+                $scope.success = function () {
+                    gintDialog.success('操作成功',2000);
+                };
+
+                $scope.error = function () {
+                    gintDialog.error('登录名为6位及以上字母、数字、下划线的任意组合。',10000);
+                };
             }
         ]);
 });

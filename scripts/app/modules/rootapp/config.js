@@ -50,9 +50,9 @@ define(["angular", 'ngDialog'], function (angular) {
         .config(['ngDialogProvider', function (ngDialogProvider) {
             ngDialogProvider.setDefaults({
                 className: 'ngdialog-theme-default',
-                template: 'common/templates/dialogs/simpleDialog.html',
+                overlay: true,
                 plain: false,
-                showClose: false,
+                showClose: false
             });
         }]);
 });
