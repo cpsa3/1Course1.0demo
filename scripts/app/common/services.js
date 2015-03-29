@@ -1,4 +1,4 @@
-﻿"use strict";   
+﻿"use strict";
 
 define(["angular"], function(angular) {
     return angular.module("Common.services", [])
@@ -7,6 +7,16 @@ define(["angular"], function(angular) {
                 return "hello world";
             };
         })
+        .service("guidService", ["$q", function($q) {
+            return {
+                get: function() {
+                    var S4 = function() {
+                        return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+                    };
+                    return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
+                }
+            };
+        }])
         .service('messageService', ['$rootScope', function($rootScope) {
             var sharedService = {};
 
