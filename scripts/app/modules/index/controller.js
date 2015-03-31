@@ -37,6 +37,14 @@ define(["angular", 'common/services/dialogService', 'ngDialog'], function (angul
                 $scope.error = function () {
                     gintDialog.error('登录名为6位及以上字母、数字、下划线的任意组合。',10000);
                 };
+
+                //paging 
+                $scope.currentPage = 9;
+                $scope.pageSize = 10;
+                $scope.total = 1000;
+                $scope.changePage = function (text, page) {
+                    console.log(text, page);
+                };
             }
         ]);
 });
