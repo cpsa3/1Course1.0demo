@@ -1,10 +1,15 @@
 "use strict";
 
-define(["angular", 'common/services/dialogService', 'ngDialog'], function (angular) {
+define([
+    "angular",
+    'common/services/dialogService',
+    'ngDialog',
+    'commonServices'
+], function (angular) {
     return angular.module("IndexApp.controller", ['Common.services', 'Dialog.services', 'ngDialog'])
         .controller("IndexAppController", [
-            "$scope", "$rootScope", 'messageBus', '$filter', 'gintDialog', 'ngDialog', '$timeout',
-            function ($scope, $rootScope, messageBus, $filter, gintDialog, ngDialog, $timeout) {
+            "$scope", "$rootScope", 'messageBus', '$filter', 'gintDialog', 'ngDialog', '$timeout', 'format',
+            function ($scope, $rootScope, messageBus, $filter, gintDialog, ngDialog, $timeout, format) {
                 $scope.desp = "this is index page.";
 
 
@@ -23,19 +28,19 @@ define(["angular", 'common/services/dialogService', 'ngDialog'], function (angul
                 messageBus.publish('index.load', data);
 
                 $scope.confirm = function () {
-                    gintDialog.confirm('提醒','确认删除 张三丰 等人？',function (value) {
+                    gintDialog.confirm('提醒', '确认删除 张三丰 等人？', function (value) {
                         console.log('Modal promise resolved. Value1: ', value);
-                    },function (reason) {
+                    }, function (reason) {
                         console.log('Modal promise rejected. Reason1: ', reason);
                     });
                 };
 
                 $scope.success = function () {
-                    gintDialog.success('操作成功',2000);
+                    gintDialog.success('操作成功', 2000);
                 };
 
                 $scope.error = function () {
-                    gintDialog.error('登录名为6位及以上字母、数字、下划线的任意组合。',10000);
+                    gintDialog.error('登录名为6位及以上字母、数字、下划线的任意组合。', 10000);
                 };
 
                 //paging 

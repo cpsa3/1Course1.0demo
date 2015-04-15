@@ -9,8 +9,8 @@ define([
     "commonFilters",
     "commonServices",
     "modules/index/app",
-    "student",
-    'demo'
+    "modules/studentapp/app",
+    'modules/demoapp/app'
 ], function (angular, services, controllers) {
     return angular.module("CourseCommonApp", [
         "ui.router",

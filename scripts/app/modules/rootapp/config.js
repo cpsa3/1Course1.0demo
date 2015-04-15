@@ -29,7 +29,6 @@ define(["angular", 'ngDialog'], function (angular) {
                     responseError: function (response) {
                         switch (response.status) {
                             case 497:
-                                //你无权进行该操作
                                 alert("无权操作");
                                 break;
                             case 498:
