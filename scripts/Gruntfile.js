@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
     // Load grunt tasks automatically  
     //require('load-grunt-tasks')(grunt);
 
@@ -36,6 +36,11 @@ module.exports = function(grunt) {
                     sourceMap: false,
                 },
                 files: "<%= srcMapDemo.files %>"
+            },
+            main: {
+                files: {
+                    'dist/main.js': ['dist/main.js']
+                }
             }
         },
         // Optimize RequireJS projects using r.js.
@@ -47,8 +52,10 @@ module.exports = function(grunt) {
                     removeCombined: true,
                     findNestedDependencies: true,
                     dir: cfg.dist,
+                    //no minification will be done.
+                    optimize: "none",
                     modules: [{
-                        name: "app",
+                        name: "main",
                         exclude: [
                             "jquery",
                             "angular",
@@ -124,6 +131,12 @@ module.exports = function(grunt) {
                     cfg.src + '/**/*.{html,js}'
                 ]
             }
+        },
+        rename: {
+            moveThat: {
+                src: 'dist/',
+                dest: 'rdist/'
+            }
         }
     });
 
@@ -137,9 +150,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-filerev');
     grunt.loadNpmTasks('grunt-usemin');
+    grunt.loadNpmTasks('grunt-rename');
 
     grunt.registerTask('default', ['jshint']);
     //grunt.registerTask('build', ['useminPrepare', 'filerev', 'usemin']);
     grunt.registerTask('dev', ['connect:dev', 'watch:dev']);
-    grunt.registerTask('release', ['clean:tmp', 'clean:dist', 'uglify:demo', 'requirejs:compile', 'copy:demo', 'clean:tasks']);
+    //grunt.registerTask('release', ['clean:tmp', 'clean:dist', 'uglify:demo', 'requirejs:compile', 'copy:demo', 'clean:tasks']);
+    grunt.registerTask('release', ['clean:tmp', 'clean:dist', 'requirejs:compile', 'uglify:main']);
 };
