@@ -97,13 +97,15 @@ define(["angular"], function (angular) {
                 var args = Array.prototype.slice.call(arguments);
                 var func = args.shift();
                 return function () {
+                    var deferred = $q.defer();
+
                     if (isProcessing) {
                         console.log('isProcessing...');
-                        return;
+                        deferred.reject('请求处理中，请勿重复操作！');
+                        return deferred.promise;
                     }
 
                     isProcessing = true;
-                    var deferred = $q.defer();
                     func.apply(null, args.concat(Array.prototype.slice.call(arguments))).then(function (result) {
                         isProcessing = false;
                         deferred.resolve(result);
